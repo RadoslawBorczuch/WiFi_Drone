@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<script src='jquery-3.3.1.min.js'></script>
+		<link rel="stylesheet" href="app.css">
+		<script async src="app.js"></script>
+		<title>ESP32 WiFi Drone</title>
+	</head>
+
+	<body>
+	<header>
+		<h1>ESP32 WiFi Drone</h1>
+	</header>
+<section class="main-body">
+       <img id="camera-img">
+       <br>
+
+       <div class="arrows">
+           <button class="button up-button" type="button" onmousedown="straight()" onmouseup="stop()" ontouchstart="straight()" ontouchend="stop()">
+               <i class="arrow up"></i></button>
+           <br>
+           <button class="button" type="button" onmousedown="left()" onmouseup="stop()" ontouchstart="left()" ontouchend="stop()"> <i
+                   class="arrow left"></i></button>
+
+           <button class="button stop-button" type="button" onmousedown="left()" onmouseup="stop()" ontouchstart="left()" ontouchend="stop()"> <i
+                       class="stop"></i></button>
+
+           <button class="button" type="button" onmousedown="right()" onmouseup="stop()" ontouchstart="right()" ontouchend="stop()"><i
+                   class="arrow right"></i></button>
+           <br>
+           <button class="button" type="button" onmousedown="back()" onmouseup="stop()" ontouchstart="back()" ontouchend="stop()"><i
+               class="arrow down"></i></button>
+           <br>
+           <button class="button led" type="button" onclick="ledToggle()">LED</button>
+       </div>
+   </section>
+
+		
+	<div id="OTA">
+	<h2>ESP32 Firmware Update</h2>
+		<label id="latest_firmware_label">Latest Firmware: </label>
+		<div id="latest_firmware"></div> 
+		<input type="file" id="selected_file" accept=".bin" style="display: none;" onchange="getFileInfo()" />
+		<div class="buttons">
+			<input type="button" value="Select File" onclick="document.getElementById('selected_file').click();" />
+			<input type="button" value="Update Firmware" onclick="updateFirmware()" />
+		</div>
+		<h4 id="file_info"></h4>	
+		<h4 id="ota_update_status"></h4>
+	</div>
+	<hr>
+		
+	</body>
+<html>
